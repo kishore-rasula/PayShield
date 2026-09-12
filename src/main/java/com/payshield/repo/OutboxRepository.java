@@ -1,0 +1,1 @@
+package com.payshield.repo; import com.payshield.domain.OutboxEvent; import org.springframework.data.jpa.repository.*; import java.util.*; public interface OutboxRepository extends JpaRepository<OutboxEvent,UUID>{ List<OutboxEvent> findTop20ByPublishedAtIsNullOrderByCreatedAtAsc(); }

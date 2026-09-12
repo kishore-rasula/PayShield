@@ -1,0 +1,1 @@
+package com.payshield.repo; import com.payshield.domain.LedgerEntry; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface LedgerRepository extends JpaRepository<LedgerEntry,UUID>{ List<LedgerEntry> findByPaymentIdOrderByCreatedAt(UUID paymentId); }

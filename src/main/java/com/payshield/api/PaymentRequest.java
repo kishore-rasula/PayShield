@@ -1,0 +1,1 @@
+package com.payshield.api; import jakarta.validation.constraints.*; import java.math.BigDecimal; public record PaymentRequest(@NotNull @DecimalMin(value="0.01") BigDecimal amount,@NotBlank @Pattern(regexp="INR|USD") String currency,@NotBlank @Size(max=100) String merchantReference,@NotBlank @Size(max=100) String customerId,@NotBlank String paymentToken) {}

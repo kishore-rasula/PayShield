@@ -1,0 +1,3 @@
+package com.payshield.domain;
+import jakarta.persistence.*; import java.time.Instant; import java.util.UUID;
+@Entity @Table(name="outbox_events") public class OutboxEvent { @Id private UUID id=UUID.randomUUID(); @Column(nullable=false) private UUID aggregateId; @Column(nullable=false) private String eventType; @Column(nullable=false) private String payload; @Column(nullable=false) private Instant createdAt=Instant.now(); private Instant publishedAt; protected OutboxEvent(){} public OutboxEvent(UUID id,String type,String payload){aggregateId=id;eventType=type;this.payload=payload;} public void published(){publishedAt=Instant.now();} public UUID getId(){return id;} public String getEventType(){return eventType;} }

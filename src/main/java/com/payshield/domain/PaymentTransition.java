@@ -1,0 +1,3 @@
+package com.payshield.domain;
+import jakarta.persistence.*; import java.time.Instant; import java.util.UUID;
+@Entity @Table(name="payment_transitions") public class PaymentTransition { @Id private UUID id=UUID.randomUUID(); @Column(nullable=false) private UUID paymentId; @Enumerated(EnumType.STRING) private PaymentStatus fromStatus; @Enumerated(EnumType.STRING) @Column(nullable=false) private PaymentStatus toStatus; @Column(nullable=false) private Instant createdAt=Instant.now(); protected PaymentTransition(){} public PaymentTransition(UUID p,PaymentStatus from,PaymentStatus to){paymentId=p;fromStatus=from;toStatus=to;} }
